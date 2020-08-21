@@ -1,11 +1,17 @@
 {
   "name": "yt-hacks",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "yt-api-hacks",
-  "main": "index.js",
+  "main": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC"
+  "author": "qaraluch",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "googleapis": "^59.0.0",
+    "youtube-api": "^3.0.1"
+  }
 }

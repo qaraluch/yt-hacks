@@ -1,3 +1,4 @@
 node_modules
 .env
-oauth2Client.json
+.secrets/
+temp.txt

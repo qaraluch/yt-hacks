@@ -1,5 +1,0 @@
-const ytApiVersion = google.getSupportedAPIs().youtube.slice(-1).pop();
-// get latest api ver. from array of versions i.e. [ "v1" , "v2" ]
-console.log(" Youtube API version: ", ytApiVersion);
-const ytAPI = google.youtube(ytApiVersion);
-

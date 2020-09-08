@@ -1,35 +1,33 @@
 const { google } = require("googleapis");
-const { writeFile } = require("./utils/writeFile");
-
+const OAuth2 = google.auth.OAuth2;
+const { writeFile } = require("../utils/writeFile");
+const { readJson } = require("../utils/readJson");
 const express = require("express");
 const server = express();
+
 const port = 3000;
-const tokensFilePath = "./oauth2Client.json";
-
-require("dotenv").config();
-
-// credentials from google oauth service
-const clientId = process.env.GOOGLE_CLIENT_ID;
-const clientSecret = process.env.GOOGLE_CLIENT_SECRET;
-
-console.log("Credentials:   ");
-console.log(" id     ---->", clientId);
-console.log(" secret ---->", "*".repeat(clientSecret.length));
-
-const oauth2Client = new google.auth.OAuth2(
-  clientId,
-  clientSecret,
-  "http://localhost:3000/callback" // oauth callback url
-);
-google.options({ auth: oauth2Client });
-
 const scope = "https://www.googleapis.com/auth/youtube";
-const authorizeUrl = oauth2Client.generateAuthUrl({
-  access_type: "offline",
-  scope,
-});
+const tokensFilePath = "./.secrets/tokens.json";
+const clientSecretFilePath = "./.secrets/client_secret.json";
+const redirectUrl = "http://localhost:3000/callback"; // oauth callback url
 
-const app = (server) => {
+async function readClientSecrets(server, app) {
+  const credentialsLoaded = await readJson(clientSecretFilePath);
+  const clientId = credentialsLoaded.installed.client_id;
+  const clientSecret = credentialsLoaded.installed.client_secret;
+  const oauth2Client = new OAuth2(clientId, clientSecret, redirectUrl);
+  console.log("Credentials:   ");
+  console.log(" id     ---->", clientId);
+  console.log(" secret ---->", "*".repeat(clientSecret.length));
+  google.options({ auth: oauth2Client });
+  const authorizeUrl = oauth2Client.generateAuthUrl({
+    access_type: "offline",
+    scope,
+  });
+  server(app, authorizeUrl, oauth2Client);
+}
+
+const app = (server, authorizeUrl, oauth2Client) => {
   // Initial page redirecting to YT
   server.get("/auth", (req, res) => {
     console.log(" authorizeUrl    ---->", authorizeUrl);
@@ -50,7 +48,7 @@ const app = (server) => {
     setTimeout(function () {
       process.exit(0);
     }, 2000);
-    return res.status(200).send("Closing...");
+    return res.status(200).send("It's done. Server closed!");
   });
 
   // Callback service parsing the authorization token and asking for the access token
@@ -58,9 +56,9 @@ const app = (server) => {
     const { code } = req.query;
     try {
       const { tokens } = await oauth2Client.getToken(code);
-      oauth2Client.credentials = tokens; // eslint-disable-line require-atomic-updates
-      console.log("The resulting token: ", tokens);
-      await writeFile(tokensFilePath, JSON.stringify(oauth2Client, null, 2));
+      // oauth2Client.setCredentials(tokens); //no need, just for reference
+      console.log("Saving tokens to the file: ", tokensFilePath, " ...");
+      await writeFile(tokensFilePath, JSON.stringify(tokens, null, 2));
       res.redirect("/success");
     } catch (error) {
       console.error("Access Token Error", error);
@@ -76,13 +74,12 @@ const app = (server) => {
   });
 };
 
-const runServer = (app) => {
+const runServer = (app, authorizeUrl, oauth2Client) => {
   const serverInstance = server.listen(port, (err) => {
     if (err) return console.error(err);
     console.log(`Express server listening at http://localhost:${port}`);
-    return app(server);
+    return app(server, authorizeUrl, oauth2Client);
   });
 };
 
-runServer(app);
-
+readClientSecrets(runServer, app);

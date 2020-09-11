@@ -5,7 +5,9 @@ const { readJson } = require("../utils/readJson");
 const express = require("express");
 const server = express();
 
-const port = 3000;
+require("dotenv").config();
+
+const port = process.env.SERVER_PORT;
 const scope = "https://www.googleapis.com/auth/youtube";
 const tokensFilePath = "./.secrets/tokens.json";
 const clientSecretFilePath = "./.secrets/client_secret.json";

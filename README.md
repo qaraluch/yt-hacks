@@ -60,7 +60,8 @@ References: [4].
 
 ## Resources:
 
-- [1] YT api [API Reference  |  YouTube Data API  |  Google Developers](https://developers.google.com/youtube/v3/docs/)
-- [2] node.js - googleapis package [googleapis/google-api-nodejs-client: Google's officially supported Node.js client library for accessing Google APIs. Support for authorization and authentication with OAuth 2.0, API Keys and JWT (Service Tokens) is included.](https://github.com/googleapis/google-api-nodejs-client#getting-supported-apis)
-- [3] oauth2 code sample [google-api-nodejs-client/oauth2.js at master · googleapis/google-api-nodejs-client](https://github.com/googleapis/google-api-nodejs-client/blob/master/samples/oauth2.js)
-- [4] yt example code [node.js quickstart | youtube data api | google developers](https://developers.google.com/youtube/v3/quickstart/nodejs)
+- [1] YT api docs [API Reference on Google Developers](https://developers.google.com/youtube/v3/docs/)
+- [2] node.js - googleapis package [googleapis/google-api-nodejs-client](https://github.com/googleapis/google-api-nodejs-client#getting-supported-apis)
+- [3] oauth2 code sample [googleapis/google-api-nodejs-client](https://github.com/googleapis/google-api-nodejs-client/blob/master/samples/oauth2.js)
+- [4] yt example code - node.js quickstart [google developers](https://developers.google.com/youtube/v3/quickstart/nodejs)
+- [5] how to get the correct parameters for the googleapi-nodejs-client [Stack Overflow](https://stackoverflow.com/questions/61749543/how-to-get-the-correct-parameters-for-the-googleapi-nodejs-client/61763636#61763636)

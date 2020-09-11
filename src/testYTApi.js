@@ -15,8 +15,8 @@ async function testYTApi(auth) {
   try {
     const response = await service.channels.list(params);
     const channels = response.data.items;
+    console.log("Test YT API:");
     if (channels.length == 0) {
-      console.log("Test YT API:");
       console.log("No channel found.");
     } else {
       console.log(

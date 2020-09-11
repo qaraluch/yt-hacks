@@ -1,8 +1,14 @@
 # yt-hacks
 
+Quick and dirty Node.js scripts to interact with YT API.
+
+## Settings
+
+Set up global settings like port number for servers and so on in `.env` file. Use `.env.example` as a template.
+
 ## Dependencies installation
 
-Install dependencies with npm package manager:
+Clone the repo and install dependencies with npm package manager:
 
 ```
 npm install
@@ -51,12 +57,22 @@ node src/testYTAPI.js
 
 References: [4].
 
+### List all playlists
+
+Get list of all your playslist and its id, name and items in it.
+
+Run command:
+
+```
+node src/lsPlaylists.js
+```
+
 ## TODOs:
 
 - [x] get tokens
 - [x] test YT API
-- [ ] ls your playlists
-- [ ] copy playlist
+- [x] ls your playlists
+- [ ] get all your subscriptsions and save it to the lists repo
 
 ## Resources:
 

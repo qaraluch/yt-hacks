@@ -14,12 +14,17 @@ Clone the repo and install dependencies with npm package manager:
 npm install
 ```
 
-List of dependencies:
+List of app dependencies:
 
 - googleapis
 - dotenv
 - express
 - prompt-confirm
+
+Other dependencies:
+
+- docker
+  - puppeteer
 
 ## Authorization  
 
@@ -55,9 +60,9 @@ Run script:
 node src/testYTAPI.js
 ```
 
-References: [4].
+References: [4], [5].
 
-### List all playlists
+## List all playlists
 
 Get list of all your playslist and its id, name and items in it.
 
@@ -67,11 +72,67 @@ Run command:
 node src/lsPlaylists.js
 ```
 
+## Take screenshot of main YT page
+
+There is used a dockerized puppeteer.js for this task.
+
+1. Install docker and build an image by:
+
+```
+./build.sh
+```
+
+or
+
+```
+docker build -t puppeteer-img .
+```
+
+2. run container:
+
+```
+./run.sh
+```
+
+or
+
+```
+sudo docker run \
+  -it \
+  --init \
+  --rm \
+  --cap-add=SYS_ADMIN \
+  -v $(pwd):/home/node/app \
+  --workdir /home/node/app \
+  puppeteer-img \
+  bash
+```
+
+It will switch to the container shell:
+
+3. run commands:
+
+```
+npm run screenshot
+```
+
+or
+
+```
+node src/screenshot.js
+```
+
+The screenshot of the web page will be saved to the `Downloads` dir in the host's CWD.
+
+References: [6].
+
 ## TODOs:
 
 - [x] get tokens
 - [x] test YT API
 - [x] ls your playlists
+- [ ] take screenshot of main YT page behind login
+- [ ] save all WL items
 - [ ] get all your subscriptsions and save it to the lists repo
 
 ## Resources:
@@ -81,3 +142,4 @@ node src/lsPlaylists.js
 - [3] oauth2 code sample [googleapis/google-api-nodejs-client](https://github.com/googleapis/google-api-nodejs-client/blob/master/samples/oauth2.js)
 - [4] yt example code - node.js quickstart [google developers](https://developers.google.com/youtube/v3/quickstart/nodejs)
 - [5] how to get the correct parameters for the googleapi-nodejs-client [Stack Overflow](https://stackoverflow.com/questions/61749543/how-to-get-the-correct-parameters-for-the-googleapi-nodejs-client/61763636#61763636)
+- [6] [puppeteer/troubleshooting.md](https://github.com/puppeteer/puppeteer/blob/main/docs/troubleshooting.md#running-puppeteer-in-docker)

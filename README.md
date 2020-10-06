@@ -131,7 +131,7 @@ References: [6].
 - [x] get tokens
 - [x] test YT API
 - [x] ls your playlists
-- [ ] take screenshot of main YT page behind login
+- [x] take screenshot of main YT page behind login
 - [ ] save all WL items
 - [ ] get all your subscriptsions and save it to the lists repo
 

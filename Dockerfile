@@ -9,7 +9,7 @@ RUN apt-get update \
       --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
-RUN npm i puppeteer dotenv
+RUN npm i puppeteer puppeteer-extra puppeteer-extra-plugin-stealth dotenv
 
 # USER node
 # uid 1000 created by node:12-slim

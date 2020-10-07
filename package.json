@@ -5,7 +5,8 @@
   "main": "",
   "scripts": {
     "start": "node index.js",
-    "screenshot": "node ./src/screenshot.js"
+    "screenshot": "node ./src/screenshot.js",
+    "login": "node ./src/loginYT.js"
   },
   "author": "qaraluch",
   "license": "MIT",

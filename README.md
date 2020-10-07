@@ -126,11 +126,10 @@ The screenshot of the web page will be saved to the `Downloads` dir in the host'
 
 References: [6].
 
+## WIP - Sign in to the YT service
+
 ## TODOs:
 
-- [x] get tokens
-- [x] test YT API
-- [x] ls your playlists
 - [x] take screenshot of main YT page behind login
 - [ ] save all WL items
 - [ ] get all your subscriptsions and save it to the lists repo

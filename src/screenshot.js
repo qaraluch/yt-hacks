@@ -1,16 +1,12 @@
 const puppeteer = require("puppeteer");
+const path = require("path");
+const { takeScreenshot } = require("../puppeteer/takeScreenshot");
 
 require("dotenv").config();
-
 const webUrl = process.env.SCREENSHOT_WEB_URL;
 const outputBaseName = process.env.SCREENSHOT_OUTPUTFILE;
-const currentDate = Date.now();
-const outputPath = `./Downloads/${outputBaseName}-${currentDate}.png`;
 
-const screenshotOptions = {
-  path: outputPath,
-  fullPage: true,
-};
+const scriptName = path.parse(__filename).name;
 
 async function run() {
   try {
@@ -18,17 +14,18 @@ async function run() {
     const page = await browser.newPage();
 
     // Events:
-    // Emitted when the page is fully loaded
-    page.once("load", () => console.info("✅ Page is loaded"));
+    page.once("load", () => console.info("[OK] The page is loaded"));
 
     console.log("About to take screenshot of:");
     console.log("  ... website: ", webUrl);
     await page.setViewport({ width: 1366, height: 768 });
-    await page.goto(webUrl);
-    await page.waitForTimeout(1500);
-    await page.screenshot(screenshotOptions);
-    console.log("To the output:");
-    console.log("  ... file: ", outputPath);
+    await page.goto(webUrl, { waitUntil: ["networkidle2"] });
+    await takeScreenshot({
+      page,
+      scriptName,
+      baseName: outputBaseName,
+    });
+
     browser.close();
   } catch (error) {
     console.error(error);

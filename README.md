@@ -126,11 +126,26 @@ The screenshot of the web page will be saved to the `Downloads` dir in the host'
 
 References: [6].
 
-## WIP - Sign in to the YT service
+## Sign in to the YT service
+
+And take screenshot of the YT page behind login.
+
+Run command:
+
+```
+npm run login
+```
+
+or
+
+```
+node src/login.js
+```
+
+References: [7], [8].
 
 ## TODOs:
 
-- [x] take screenshot of main YT page behind login
 - [ ] save all WL items
 - [ ] get all your subscriptsions and save it to the lists repo
 
@@ -142,3 +157,5 @@ References: [6].
 - [4] yt example code - node.js quickstart [google developers](https://developers.google.com/youtube/v3/quickstart/nodejs)
 - [5] how to get the correct parameters for the googleapi-nodejs-client [Stack Overflow](https://stackoverflow.com/questions/61749543/how-to-get-the-correct-parameters-for-the-googleapi-nodejs-client/61763636#61763636)
 - [6] [puppeteer/troubleshooting.md](https://github.com/puppeteer/puppeteer/blob/main/docs/troubleshooting.md#running-puppeteer-in-docker)
+- [7] ["Couldn't sign you in" Google account login fails in headless mode ... · Issue #4871 · puppeteer/puppeteer](https://github.com/puppeteer/puppeteer/issues/4871)
+- [8] [puppeteer-extra/packages/puppeteer-extra-plugin-stealth](https://github.com/berstend/puppeteer-extra/tree/master/packages/puppeteer-extra-plugin-stealth)

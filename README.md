@@ -129,8 +129,9 @@ References: [6].
 ## Sign in to the YT service
 
 And take screenshot of the YT page behind login.
+For this task it is used puppeteer script: `signInYT.js`
 
-Run command:
+Run following command to see results of this scrip:
 
 ```
 npm run login
@@ -139,14 +140,34 @@ npm run login
 or
 
 ```
-node src/login.js
+node src/loginYT.js
 ```
 
 References: [7], [8].
 
+## Lazy load all videos' content on the page
+
+In order to make operations on the Watch Later list you need to lazy load all content on the page.
+For this task it is used puppeteer script: `lazyLoadPageContent.js`
+
+Run following command to see results of this scrip:
+
+```
+npm run scroll-down
+```
+
+or
+
+```
+node src/scrollDownWL.js
+```
+
+References: [9].
+
 ## TODOs:
 
-- [ ] save all WL items
+- [ ] copy all WL items to new playlist
+- [ ] wipe out WL list
 - [ ] get all your subscriptsions and save it to the lists repo
 
 ## Resources:
@@ -156,6 +177,7 @@ References: [7], [8].
 - [3] oauth2 code sample [googleapis/google-api-nodejs-client](https://github.com/googleapis/google-api-nodejs-client/blob/master/samples/oauth2.js)
 - [4] yt example code - node.js quickstart [google developers](https://developers.google.com/youtube/v3/quickstart/nodejs)
 - [5] how to get the correct parameters for the googleapi-nodejs-client [Stack Overflow](https://stackoverflow.com/questions/61749543/how-to-get-the-correct-parameters-for-the-googleapi-nodejs-client/61763636#61763636)
-- [6] [puppeteer/troubleshooting.md](https://github.com/puppeteer/puppeteer/blob/main/docs/troubleshooting.md#running-puppeteer-in-docker)
-- [7] ["Couldn't sign you in" Google account login fails in headless mode ... · Issue #4871 · puppeteer/puppeteer](https://github.com/puppeteer/puppeteer/issues/4871)
-- [8] [puppeteer-extra/packages/puppeteer-extra-plugin-stealth](https://github.com/berstend/puppeteer-extra/tree/master/packages/puppeteer-extra-plugin-stealth)
+- [6] running puppeteer in docker [puppeteer/troubleshooting.md](https://github.com/puppeteer/puppeteer/blob/main/docs/troubleshooting.md#running-puppeteer-in-docker)
+- [7] Couldn't sign you in Google account login fails in headless mode [Issue #4871 · puppeteer/puppeteer](https://github.com/puppeteer/puppeteer/issues/4871)
+- [8] puppeteer-extra-plugin-stealth [puppeteer-extra/packages](https://github.com/berstend/puppeteer-extra/tree/master/packages/puppeteer-extra-plugin-stealth)
+- [9] scroll down until you can't anymore [Stack Overflow](https://stackoverflow.com/questions/51529332/puppeteer-scroll-down-until-you-cant-anymore)

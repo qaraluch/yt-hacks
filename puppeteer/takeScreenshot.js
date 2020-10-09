@@ -1,22 +1,29 @@
+//Puppeteer util
 async function takeScreenshot({
   skip = false,
   page,
   scriptName,
   baseName,
   wait = 0,
+  fullPage = false,
+  mute = false,
 }) {
   if (skip) {
-    console.info("[SCREENSHOT] skiped");
+    if (!mute) {
+      console.info("[SCREENSHOT] skiped");
+    }
   } else {
     const currentDate = Date.now();
     const outputPath = `./Downloads/${scriptName}-${currentDate}-${baseName}.png`;
     const screenshotOptions = {
       path: outputPath,
-      fullPage: true,
+      fullPage,
     };
     await page.waitForTimeout(wait);
     await page.screenshot(screenshotOptions);
-    console.info("[SCREENSHOT] file:", outputPath);
+    if (!mute) {
+      console.info("[SCREENSHOT] file:", outputPath);
+    }
   }
 }
 

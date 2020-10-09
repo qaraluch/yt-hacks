@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node index.js",
     "screenshot": "node ./src/screenshot.js",
-    "login": "node ./src/loginYT.js"
+    "login": "node ./src/loginYT.js",
+    "scroll-down": "node ./src/scrollDownWL.js"
   },
   "author": "qaraluch",
   "license": "MIT",

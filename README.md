@@ -162,22 +162,39 @@ or
 node src/scrollDownWL.js
 ```
 
-References: [9].
+## Copy videos form WL playlist to another (backup)
+
+After load all videos for WL playlist you can backup videos to another playlist now.
+For this task it is used puppeteer script: `copyVideosBetweenPlaylists.js`
+
+Run following command to see results of this scrip:
+
+```
+npm run backup-wl
+```
+
+or
+
+```
+node src/backupWL.js
+```
+
+References: [10].
 
 ## TODOs:
 
-- [ ] copy all WL items to new playlist
 - [ ] wipe out WL list
 - [ ] get all your subscriptsions and save it to the lists repo
 
 ## Resources:
 
-- [1] YT api docs [API Reference on Google Developers](https://developers.google.com/youtube/v3/docs/)
-- [2] node.js - googleapis package [googleapis/google-api-nodejs-client](https://github.com/googleapis/google-api-nodejs-client#getting-supported-apis)
-- [3] oauth2 code sample [googleapis/google-api-nodejs-client](https://github.com/googleapis/google-api-nodejs-client/blob/master/samples/oauth2.js)
-- [4] yt example code - node.js quickstart [google developers](https://developers.google.com/youtube/v3/quickstart/nodejs)
-- [5] how to get the correct parameters for the googleapi-nodejs-client [Stack Overflow](https://stackoverflow.com/questions/61749543/how-to-get-the-correct-parameters-for-the-googleapi-nodejs-client/61763636#61763636)
-- [6] running puppeteer in docker [puppeteer/troubleshooting.md](https://github.com/puppeteer/puppeteer/blob/main/docs/troubleshooting.md#running-puppeteer-in-docker)
-- [7] Couldn't sign you in Google account login fails in headless mode [Issue #4871 · puppeteer/puppeteer](https://github.com/puppeteer/puppeteer/issues/4871)
-- [8] puppeteer-extra-plugin-stealth [puppeteer-extra/packages](https://github.com/berstend/puppeteer-extra/tree/master/packages/puppeteer-extra-plugin-stealth)
-- [9] scroll down until you can't anymore [Stack Overflow](https://stackoverflow.com/questions/51529332/puppeteer-scroll-down-until-you-cant-anymore)
+- [1] YT api docs [[API Reference on Google Developers](https://developers.google.com/youtube/v3/docs/)]
+- [2] node.js - googleapis package [[googleapis/google-api-nodejs-client](https://github.com/googleapis/google-api-nodejs-client#getting-supported-apis)]
+- [3] oauth2 code sample [[googleapis/google-api-nodejs-client](https://github.com/googleapis/google-api-nodejs-client/blob/master/samples/oauth2.js)]
+- [4] yt example code - node.js quickstart [[google developers](https://developers.google.com/youtube/v3/quickstart/nodejs)]
+- [5] how to get the correct parameters for the googleapi-nodejs-client [[Stack Overflow](https://stackoverflow.com/questions/61749543/how-to-get-the-correct-parameters-for-the-googleapi-nodejs-client/61763636#61763636)]
+- [6] running puppeteer in docker [[puppeteer/troubleshooting.md](https://github.com/puppeteer/puppeteer/blob/main/docs/troubleshooting.md#running-puppeteer-in-docker)]
+- [7] Couldn't sign you in Google account login fails in headless mode [[Issue #4871 · puppeteer/puppeteer](https://github.com/puppeteer/puppeteer/issues/4871)]
+- [8] puppeteer-extra-plugin-stealth [[puppeteer-extra/packages](https://github.com/berstend/puppeteer-extra/tree/master/packages/puppeteer-extra-plugin-stealth)]
+- [9] scroll down until you can't anymore [[Stack Overflow](https://stackoverflow.com/questions/51529332/puppeteer-scroll-down-until-you-cant-anymore)]
+- [10] puppeteer documentation [[Puppeteer](https://pptr.dev/)]

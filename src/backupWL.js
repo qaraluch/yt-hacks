@@ -6,6 +6,9 @@ const { waitTillLoaded } = require("../puppeteer/waitTillLoaded");
 const { signInYT } = require("../puppeteer/signInYT");
 const { lazyLoadPageContent } = require("../puppeteer/lazyLoadPageContent");
 const { consoleLogBrowser } = require("../puppeteer/consoleLogBrowser");
+const {
+  copyVideosBetweenPlaylists,
+} = require("../puppeteer/copyVideosBetweenPlaylists");
 
 // Need to pass G tests on headless browser connections.
 puppeteer.use(StealthPlugin());
@@ -46,13 +49,19 @@ async function run() {
     console.log("[TASK] Lazy load all 'Watch Later' playlist's videos:");
     await page.goto(webUrlWL, { waitUntil: ["networkidle2"] });
 
-    //* load all playlist's videos
+    // * load all playlist's videos
     await lazyLoadPageContent({ page, scriptName });
+
+    // * copy videos
+    console.info("[TASK] About to copy videos to:");
+    await copyVideosBetweenPlaylists(page, "wl-back");
+
     await takeScreenshot({
-      skip: false,
+      skip: true,
+      mute: true,
       page,
       scriptName,
-      baseName: "final-screenshot",
+      baseName: "dev",
       fullPage: false,
     });
 

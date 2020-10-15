@@ -7,11 +7,13 @@
     "start": "node index.js",
     "screenshot": "node ./src/screenshot.js",
     "login": "node ./src/loginYT.js",
-    "scroll-down": "node ./src/scrollDownWL.js"
+    "scroll-down": "node ./src/scrollDownWL.js",
+    "backup-wl": "node ./src/backupWL.js"
   },
   "author": "qaraluch",
   "license": "MIT",
   "dependencies": {
+    "del": "^6.0.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "googleapis": "^59.0.0",

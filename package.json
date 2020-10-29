@@ -8,7 +8,7 @@
     "screenshot": "node ./src/screenshot.js",
     "login": "node ./src/loginYT.js",
     "scroll-down": "node ./src/scrollDownWL.js",
-    "backup-wl": "node ./src/backupWL.js"
+    "backup-wl": "node ./src/backupWL.js $1"
   },
   "author": "qaraluch",
   "license": "MIT",

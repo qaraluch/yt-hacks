@@ -6,12 +6,16 @@ const {
 const { countTagChildrens } = require("../puppeteer/countTagChildrens");
 // const { takeScreenshot } = require("../puppeteer/takeScreenshot");
 
-async function copyVideosBetweenPlaylists(page, playlistNameTarget) {
+async function copyVideosBetweenPlaylists(
+  page,
+  playlistNameTarget,
+  resumeVideoNo = 1
+) {
   const selectorVideoListParent =
     "ytd-playlist-video-list-renderer > #contents";
   const videosCount = await countTagChildrens(page, selectorVideoListParent);
 
-  for (let videoNo = 1; videoNo <= videosCount; videoNo++) {
+  for (let videoNo = resumeVideoNo; videoNo <= videosCount; videoNo++) {
     const selectorVideo = `ytd-playlist-video-list-renderer > #contents > ytd-playlist-video-renderer:nth-child(${videoNo})`;
 
     // get video's info for logging

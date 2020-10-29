@@ -14,6 +14,7 @@ const {
 puppeteer.use(StealthPlugin());
 
 const scriptName = path.parse(__filename).name;
+const resumeVideoNo = process.argv[2];
 
 const webUrl = "https://www.youtube.com";
 const webUrlWL = `${webUrl}/playlist?list=WL`;
@@ -54,7 +55,7 @@ async function run() {
 
     // * copy videos
     console.info("[TASK] About to copy videos to:");
-    await copyVideosBetweenPlaylists(page, "wl-back");
+    await copyVideosBetweenPlaylists(page, "wl-back", resumeVideoNo);
 
     await takeScreenshot({
       skip: true,

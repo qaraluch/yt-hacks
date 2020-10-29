@@ -171,6 +171,7 @@ Run following command to see results of this scrip:
 
 ```
 npm run backup-wl
+npm run backup-wl 150
 ```
 
 or
@@ -178,6 +179,8 @@ or
 ```
 node src/backupWL.js
 ```
+
+You can pass argument witch video number the script resume from.
 
 References: [10].
 

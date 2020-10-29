@@ -184,9 +184,26 @@ You can pass argument witch video number the script resume from.
 
 References: [10].
 
+## Remove videos form playlist
+
+For this task it is used puppeteer script: `removeVideosFromPlaylist.js`
+
+Run following command to see results of this scrip:
+
+```
+npm run cleanup-wl
+```
+
+or
+
+```
+node src/cleanUpWL.js
+```
+
+References: [10].
+
 ## TODOs:
 
-- [ ] wipe out WL list
 - [ ] get all your subscriptsions and save it to the lists repo
 
 ## Resources:
